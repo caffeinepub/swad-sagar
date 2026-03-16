@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,33 +6,36 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
-    --primary: 43 74% 49%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
-    --accent: 43 74% 49%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 43 74% 49%;
-    --radius: 0.5rem;
+    /* OKLCH color tokens — raw L C H values */
+    --background: 97% 0.012 75;
+    --foreground: 22% 0.04 50;
+    --card: 99% 0.006 75;
+    --card-foreground: 22% 0.04 50;
+    --popover: 99% 0.006 75;
+    --popover-foreground: 22% 0.04 50;
+    --primary: 62% 0.18 52;
+    --primary-foreground: 99% 0.005 75;
+    --secondary: 94% 0.04 75;
+    --secondary-foreground: 30% 0.06 50;
+    --muted: 93% 0.025 75;
+    --muted-foreground: 55% 0.04 60;
+    --accent: 65% 0.2 48;
+    --accent-foreground: 99% 0.005 75;
+    --destructive: 55% 0.22 25;
+    --destructive-foreground: 99% 0.005 75;
+    --border: 88% 0.03 80;
+    --input: 88% 0.03 80;
+    --ring: 62% 0.18 52;
+    --radius: 0.75rem;
 
     /* Custom brand tokens */
-    --gold: 43.5 74.2% 49%;
-    --gold-light: 45 80% 65%;
-    --gold-dark: 38 70% 35%;
-    --cream: 45 50% 96%;
-    --charcoal: 220 13% 18%;
+    --saffron: oklch(65% 0.2 48);
+    --saffron-deep: oklch(55% 0.22 45);
+    --saffron-light: oklch(82% 0.14 70);
+    --cream: oklch(97% 0.014 80);
+    --warm-white: oklch(99% 0.005 75);
+    --spice-brown: oklch(38% 0.08 50);
+    --leaf-green: oklch(50% 0.14 145);
   }
 }
 
@@ -42,41 +45,46 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "DM Sans", sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
     scroll-behavior: smooth;
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
   }
   h1,
   h2,
   h3,
   h4 {
-    font-family: "Playfair Display", serif;
+    font-family: "Fraunces", serif;
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Gold gradient utilities */
-.gold-gradient {
+/* Saffron gradient */
+.saffron-gradient {
   background: linear-gradient(
     135deg,
-    #c9a84c 0%,
-    #d4af37 40%,
-    #f2d07b 70%,
-    #c9a84c 100%
+    oklch(65% 0.2 48) 0%,
+    oklch(72% 0.19 58) 50%,
+    oklch(62% 0.22 44) 100%
   );
 }
 
-.gold-text-gradient {
-  background: linear-gradient(135deg, #c9a84c 0%, #f2d07b 50%, #c9a84c 100%);
+.saffron-text-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(62% 0.22 44) 0%,
+    oklch(75% 0.18 62) 50%,
+    oklch(60% 0.2 44) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Nav link hover underline */
+/* Nav underline */
 .nav-link {
   position: relative;
 }
@@ -87,23 +95,36 @@ html {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #c9a84c, #f2d07b);
+  background: linear-gradient(90deg, oklch(65% 0.2 48), oklch(75% 0.18 62));
   transition: width 0.3s ease;
 }
 .nav-link:hover::after {
   width: 100%;
 }
 
-/* Card hover effect */
-.product-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Card hover */
+.menu-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.product-card:hover {
+.menu-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(201, 168, 76, 0.2);
+  box-shadow: 0 24px 60px oklch(60% 0.2 48 / 0.22);
 }
 
-/* Star rating */
 .star-filled {
-  color: #d4af37;
+  color: oklch(68% 0.2 55);
+}
+
+/* Texture overlay */
+.spice-pattern {
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      oklch(65% 0.2 48 / 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      oklch(55% 0.18 30 / 0.06) 0%,
+      transparent 50%
+    );
 }

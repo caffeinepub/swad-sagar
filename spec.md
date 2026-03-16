@@ -1,27 +1,23 @@
-# Style Hub Boutique
+# मनपसंद Family Restaurant
 
 ## Current State
-Existing project is a restaurant website (Swad Sagar). This request is a completely new website for a clothing store.
+New project. No existing code.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Hero section with store name and tagline
-- Latest Collection section: Jeans, Shirts, Kurti with product cards
-- Seasonal Offers section: Flat 50% Off banner
-- Customer Reviews section with testimonial cards
-- Contact section with embedded Google Maps and WhatsApp button
-- Modern white and gold color theme
-- Mobile-responsive single-page layout
+- Hero section with a food image and restaurant name
+- Our Menu section with Thali, Paneer, and Biryani items
+- Testimonials section with customer reviews
+- Contact Us section with phone number and address
 
 ### Modify
-- Replace all existing Swad Sagar content with Style Hub Boutique content
+- N/A
 
 ### Remove
-- All restaurant-related content (menu, food images, etc.)
+- N/A
 
 ## Implementation Plan
-1. Generate product images for Jeans, Shirts, Kurti
-2. Rewrite frontend with new sections and white/gold theme
-3. Add WhatsApp CTA button linking to WhatsApp
-4. Embed Google Maps iframe in contact section
+- Generate a hero food image
+- Build a single-page React frontend with all four sections
+- Mobile-friendly, modern design with warm food-themed colors
